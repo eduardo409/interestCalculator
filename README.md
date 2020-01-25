@@ -1,5 +1,5 @@
 # Interest Calculator
-Given loan principle and APR in decimel value. The application will return daily, monthly and annual expected accumulation of interest.
+Given loan principle and APR in decimel value. The application will return daily, monthly and annual expected interest. 
 
 ## Example:
 

@@ -48,7 +48,7 @@ def boxify(content):
     h_line(WIDTH)
 
 def boxifyCalendar(listOfmonths):
-    WIDTH = 175
+    WIDTH = 120
     h_line(WIDTH)
     listOfCol = ['Month', 'Monthly Payment', 'Applied to Principal', 'Applied to Interest', 'Principal' ]
     header = "".join([col.ljust(int(WIDTH/len(listOfCol))," ") for col in listOfCol])

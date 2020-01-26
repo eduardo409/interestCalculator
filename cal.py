@@ -9,10 +9,12 @@ def calPaymentCalendar(amount, monthly_payment, apr):
     months = []
     monthCount = 0
     date = datetime.date.today() 
+    interest_acc = 0
     while(amount > 0):
         monthCount += 1
         date = date + relativedelta.relativedelta(months=1)
         interest = amount * apr / 12
+        interest_acc = interest_acc + interest
         if amount < monthly_payment:
             monthly_payment = amount + interest 
         pay_principle = monthly_payment - interest
@@ -24,7 +26,7 @@ def calPaymentCalendar(amount, monthly_payment, apr):
         f_interest = f'${format(interest,".2f")}'
         f_amount = f'${format(amount,".2f")}'
         months.append((f_month,f_monthly_payment,f_pay_principle, f_interest, f_amount))
-    return months
+    return (months,interest_acc)
 
 def getArgv():
     try:
@@ -73,5 +75,6 @@ if __name__ == "__main__":
     content.append(f'Annual Interest: ${format(annual_interest, ".2f")}')
     boxify(content)
     monthly_payment = getinfo()
-    paymentCal = calPaymentCalendar(loan_principle, monthly_payment, loan_apr)
+    (paymentCal,accumulated_interest) = calPaymentCalendar(loan_principle, monthly_payment, loan_apr)
     boxifyCalendar(paymentCal)
+    print(f'Total interest Payed to bank: {format(accumulated_interest,".2f")}')

@@ -2,6 +2,13 @@
 
 Given loan principle and APR in decimel value. The application will return daily, monthly and annual expected interest. 
 
+## Configuration
+• Python3
+
+• pip3
+
+• `pip3 install python-dateutil`
+
 ## Example:
 
 loan_principle = `$12,243`
